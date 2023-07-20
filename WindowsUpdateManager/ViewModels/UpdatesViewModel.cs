@@ -25,6 +25,10 @@ public partial class UpdatesViewModel : ObservableRecipient, INavigationAware
 
     public async void OnNavigatedTo(object parameter)
     {
+    }
+
+    public async Task LoadUpdatesAsync()
+    {
         AvailableUpdates.Clear();
 
         var updates = await _windowsUpdateService.GetAvailableUpdatesAsync();

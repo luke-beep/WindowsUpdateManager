@@ -64,6 +64,10 @@
     </Page.Resources>
 
     <Grid x:Name="ContentArea">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -77,7 +81,9 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <Button Content="Scan for Updates" Click="ScanButton_Click" />
         <controls:ListDetailsView
+            Grid.Row="1"
             x:Uid="Updates"
             x:Name="ListDetailsViewControl"
             BackButtonBehavior="Manual"

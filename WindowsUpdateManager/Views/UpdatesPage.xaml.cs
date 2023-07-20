@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
-
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 using WindowsUpdateManager.ViewModels;
@@ -31,5 +31,10 @@ public sealed partial class UpdatesPage : Page
     {
         base.OnNavigatedTo(e);
         ViewModel.OnNavigatedTo(e.Parameter);
+    }
+
+    private async void ScanButton_Click(object sender, RoutedEventArgs e)
+    {
+        await ViewModel.LoadUpdatesAsync();
     }
 }

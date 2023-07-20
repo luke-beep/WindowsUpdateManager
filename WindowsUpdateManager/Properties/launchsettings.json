@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "WindowsUpdateManager (Unpackaged)": {
+        "commandName": "Project"
+      },
+      "WindowsUpdateManager (Package)": {
+        "commandName": "MsixPackage"
+      }
+    }
+}

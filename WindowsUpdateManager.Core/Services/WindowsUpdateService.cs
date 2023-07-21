@@ -4,8 +4,9 @@ using WindowsUpdateManager.Core.Models;
 namespace WindowsUpdateManager.Core.Services;
 public class WindowsUpdateService : IWindowsUpdateService
 {
-    private readonly dynamic _updateSession;
-    private readonly dynamic _updateSearcher;
+    private dynamic _updateSession = null;
+    private dynamic _updateSearcher = null;
+    private dynamic _searchResult = null;
 
     public WindowsUpdateService()
     {
@@ -25,10 +26,10 @@ public class WindowsUpdateService : IWindowsUpdateService
 
         await Task.Run(() =>
         {
-            var searchResult = _updateSearcher.Search("IsInstalled=0");
-            for (var i = 0; i < searchResult.Updates.Count; ++i)
+             _searchResult = _updateSearcher.Search("IsInstalled=0");
+            for (var i = 0; i < _searchResult.Updates.Count; ++i)
             {
-                var update = searchResult.Updates.Item(i);
+                var update = _searchResult.Updates.Item(i);
                 updates.Add(new WindowsUpdate
                 {
                     Title = update.Title,

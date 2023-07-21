@@ -23,7 +23,7 @@ public partial class UpdatesViewModel : ObservableRecipient, INavigationAware
         _windowsUpdateService = windowsUpdateService;
     }
 
-    public async void OnNavigatedTo(object parameter)
+    public void OnNavigatedTo(object parameter)
     {
     }
 
